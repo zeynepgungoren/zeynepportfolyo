@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0cff0d50-c064-4a71-a2d8-a6150749011d" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/public/b.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/c.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/h.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/iletisim2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bgraound.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/html.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vp1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-    </list>
+    <list default="true" id="0cff0d50-c064-4a71-a2d8-a6150749011d" name="Changes" comment="Initial commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,7 +96,7 @@
       <workItem from="1747840784853" duration="375000" />
       <workItem from="1747841173675" duration="47000" />
       <workItem from="1747841319889" duration="16269000" />
-      <workItem from="1747913556648" duration="25900000" />
+      <workItem from="1747913556648" duration="26222000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -176,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747582747387</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1747949537640</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1747949537640</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
