@@ -34,329 +34,257 @@ const App = () => {
     useEffect(() => {
         const style = document.createElement('style');
         style.innerHTML = `
+
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: 'Raleway', sans-serif;
+        }
         
-            @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
-            @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                scroll-behavior: smooth;
-                font-family: 'Raleway', sans-serif;
-            }
+        body {
+            background-color: #0A0F2C;
+            color: #FFFFFF;
+        }
 
-            body {
-                background-color: #0A0F2C;
-                color: #FFFFFF;
-            }
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
 
-            .container {
-                display: flex;
-            }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 220px;
+            height: 100vh;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            justify-content: center;
+            gap: 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            transition: all 0.3s ease;
+        }
 
+        .photo {
+            width: 100px;
+            height: 100px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .name p {
+            margin: 4px 0;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 20px;
+            margin: 0 auto 40px;
+            background-color: #1D223A;
+            display: flex;
+            justify-content: center;
+            padding: 12px 24px;
+            gap: 20px;
+            border-radius: 30px;
+            width: fit-content;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+            flex-wrap: wrap;
+        }
+
+        .navbar button {
+            background: transparent;
+            border: 2px solid #F6A94C;
+            color: #F6A94C;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .navbar button:hover {
+            background-color: #F6A94C;
+            color: #1D223A;
+            font-weight: 600;
+        }
+
+        .content {
+            margin-left: 220px;
+            width: calc(100% - 220px);
+        }
+
+        .section {
+            padding: 60px 20px;
+            min-height: 100vh;
+            background-color: #0A0F2C;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        .search-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: #1D223A;
+            border: 2px solid #F6A94C;
+            border-radius: 30px;
+            padding: 8px 12px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .search-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .search-icon {
+            font-size: 18px;
+        }
+
+        .start-button {
+            margin-top: 20px;
+            background-color: #F6A94C;
+            color: #1D223A;
+            border: none;
+            padding: 12px 26px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .start-button:hover {
+            background-color: #ffbd69;
+        }
+
+        #benkimim .profile-box h3,
+        #benkimim .profile-box p {
+                text-align: left;
+                align-items: flex-start;
+        }
+
+        .blink {
+            animation: blink 3s infinite;
+            color: #008000;
+            font-size: 36px;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        #neler .skills-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            gap: 20px;
+        }
+       
+}
+
+
+        #neler .skills-section .skill-category {
+            width: 100%;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-buttons button {
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
             .sidebar {
                 position: fixed;
                 top: 0;
                 left: 0;
-                width: 220px;
-                height: 100vh;
-                background-color: #333;
-                color: #fff;
-                display: flex;
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 10px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            }
+
+            .container {
                 flex-direction: column;
-                align-items: center;
-                padding: 20px;
-                text align: center;
-                justify-content: center;
-                gap: 20px;
-                z-index: 1000;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.6);
-            }
-
-            .photo {
-                width: 100px;
-                height: 100px;
-                background-color: #333;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 15px;
-                font-weight: bold;
-            }
-
-            .name p {
-                margin: 4px 0;
-                font-weight: 600;
-                text-align: center;
-            }
-
-            .navbar {
-                position: sticky;
-                top: 20px;
-                margin: 0 auto 40px;
-                background-color: #1D223A;
-                display: flex;
-                justify-content: center;
-                padding: 12px 24px;
-                gap: 20px;
-                border-radius: 30px;
-                width: fit-content;
-                z-index: 1000;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.6);
-            }
-
-            .navbar button {
-                background: transparent;
-                border: 2px solid #F6A94C;
-                color: #F6A94C;
-                padding: 8px 14px;
-                border-radius: 20px;
-                cursor: pointer;
-                font-size: 14px;
-                transition: 0.3s;
-            }
-
-            .navbar button:hover {
-                background-color: #F6A94C;
-                color: #1D223A;
-                font-weight: 600;
             }
 
             .content {
-                margin-left: 220px;
-                width: calc(100% - 220px);
-            }
-
-            .section {
-                padding: 60px 40px;
-                min-height: 100vh;
-                background-color: #0A0F2C;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-
-            .section h2 {
-                font-size: 28px;
-                margin-bottom: 20px;
-                color: #FFFFFF;
-            }
-
-            .search-container {
-                margin-top: 20px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .search-box {
-                display: flex;
-                align-items: center;
-                background-color: #1D223A;
-                border: 2px solid #F6A94C;
-                border-radius: 30px;
-                padding: 8px 12px;
+                margin-left: 0;
                 width: 100%;
-                max-width: 600px;
+                padding-top: 80px;
             }
-
-            .search-box input {
-                flex: 1;
-                background: transparent;
-                border: none;
-                outline: none;
-                color: #fff;
-                font-size: 16px;
-                padding: 10px;
-            }
-
-            .search-icon {
-                font-size: 18px;
-            }
-
-            .start-button {
-                margin-top: 20px;
-                background-color: #F6A94C;
-                color: #1D223A;
-                border: none;
-                padding: 12px 26px;
-                border-radius: 25px;
-                font-size: 16px;
-                font-weight: 600;
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-
-            .start-button:hover {
-                background-color: #ffbd69;
-            }
-
-
-            #benkimim .profile-box h3 {
-                font-size: 27px;
-                margin-bottom: 20px;
-                text-align: left;
-            }
-
-            #benkimim .profile-box p {
-                font-size: 22px;
-                margin-bottom: 15px;
-                text-align: left;
-            }
-            
 
             .blink {
-                animation: blink 3s infinite;
-                color: #008000;
-                font-size: 42px;
-                font-weight: bold;
-                font-family: 'Courier New', Courier, monospace;
-                text-align: center;
-                margin-bottom: 30px;
+                font-size: 28px;
             }
 
-            @keyframes blink {
-                0%, 100% { opacity: 1; }
-                50% { opacity: 0; }
+            .navbar {
+                flex-wrap: wrap;
+                padding: 10px;
             }
-
-            #neler .skills-section {
-                display: flex;
-                flex-direction: row;
-                align-items: flex-start;
-                width: 100%;
-                max-width: 800px;
-                margin: 0 auto;
-                gap: 20px;
-            }
-            
-
-
-            #neler .skills-section .skill-category {
-                width: 48%;
-                margin-bottom: 0;
-                display: flex;
-                flex-direction: column;
-            }
-
-            #neler .skills-section .skill-category h3 {
-                font-size: 24px;
-                margin-bottom: 15px;
-                color: #FFFFFF;
-                text-align: left;
-                border-bottom: 2px solid #F6A94C;
-                padding-bottom: 10px;
-            }
-
-            #neler .skill-box {
-                background-color: #1D223A;
-                border-radius: 12px;
-                padding: 20px;
-                margin-bottom: 20px;
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            #neler .skill-box.hidden {
-                display: none;
-            }
-
-            #neler .skill-box h3 {
-                font-size: 20px;
-                margin-bottom: 10px;
-                color: #FFFFFF;
-                text-align: center;
-            }
-
-            #neler .progress-bar {
-                background-color: #333;
-                height: 10px;
-                border-radius: 5px;
-                position: relative;
-                overflow: hidden;
-                width: 100%;
-            }
-
-            #neler .progress-bar-fill {
-                background-color: #F6A94C;
-                height: 10px;
-                border-radius: 5px;
-                width: 0%;
-                transition: width 0.5s ease;
-            }
-
-            #neler .skill-box p {
-                font-size: 16px;
-                color: #FFFFFF;
-                text-align: center;
-                margin-top: 10px;
-            }
-
-            .filter-buttons {
-                display: flex;
-                justify-content: center;
-                margin-bottom: 20px;
-                gap: 10px;
-            }
-
-            .filter-buttons button {
-                background-color: #1D223A;
-                color: #F6A94C;
-                border: 2px solid #F6A94C;
-                padding: 6px 12px; /* Daha küçük padding */
-                border-radius: 15px; /* Daha küçük border-radius */
-                cursor: pointer;
-                font-size: 12px; /* Daha küçük font-size */
-                transition: all 0.3s ease;
-            }
-
-            .filter-buttons button:hover {
-                background-color: #F6A94C;
-                color: #1D223A;
-                font-weight: 600;
-            }
-
-            .filter-buttons button.active {
-                background-color: #F6A94C;
-                color: #1D223A;
-                font-weight: 600;
-            }
-
-            #neler .programing-skills-container {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-                width: 100%;
-            }
-
-            #neler .programing-skills-container .skill-box{
-                width: 100%;
-                margin-right: 0;
-            }
-
-            #neler .programing-skills-container .skill-box:nth-child(4){
-                width: 100%;
-            }
-
-            #neler .language-skills-container {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-                width: 100%;
-            }
-
-            #neler .language-skills-container .skill-box{
-                width: 100%;
-                margin-right: 0;
-            }
-
-        `;
+        }
+    `;
         document.head.appendChild(style);
-
     }, []);
 
     useEffect(() => {
@@ -524,37 +452,38 @@ const App = () => {
                     ))}
                 </nav>
 
-                <section id="anasayfa" className="section">
-                    <h1 className="blink">"Hello World"</h1>
-                    <div className="search-container">
-                        <div className="search-box">
-                            <input
-                                type="text"
-                                placeholder="Bir şeyler arayın..."
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                                onKeyDown={(e) => {
-                                    if (e.key === 'Enter') handleSearch(); // Enter ile çalışsın
-                                }}
-                            />
-                            <span
-                                role="img"
-                                aria-label="search"
-                                className="search-icon"
-                                onClick={handleSearch} // simgeye tıklama ile de çalışsın
-                                style={{ cursor: 'pointer' }}
-                            >
+        <section id="anasayfa" className="section anasayfa-section">
+            <h1 className="blink">"Hello World"</h1>
+            <div className="search-container">
+                <div className="search-box">
+                    <input
+                        type="text"
+                        placeholder="Bir şeyler arayın..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') handleSearch();
+                        }}
+                    />
+                    <span
+                        role="img"
+                        aria-label="search"
+                        className="search-icon"
+                        onClick={handleSearch}
+                        style={{ cursor: 'pointer' }}
+                    >
                 🔍
             </span>
-                        </div>
-                        <button className="start-button" onClick={() => scrollTo('benkimim')}>
-                            Tanımaya Başla
-                        </button>
-                    </div>
-                </section>
+                </div>
+                <button className="start-button" onClick={() => scrollTo('benkimim')}>
+                    Tanımaya Başla
+                </button>
+            </div>
+        </section>
 
 
-                <section id="benkimim" className="section" style={{ position: 'relative', textAlign: 'center', padding: '60px 0', scrollMarginTop: '80px' }}>
+
+        <section id="benkimim" className="section" style={{ position: 'relative', textAlign: 'center', padding: '60px 0', scrollMarginTop: '80px' }}>
                     {/* Ana başlık ve arka plan yazısı aynı konumda */}
                     <div style={{ position: 'relative', display: 'inline-block' }}>
                         {/* Arka plan yazısı */}
@@ -601,10 +530,10 @@ const App = () => {
                             fontFamily: 'Arial, sans-serif', // Yazı tipi
                             color: '#555', // Yazı rengi
                             textAlign: 'left', // Metin hizalama
-                            fontSize: '100px', // Yazı büyüklüğü
+                            fontSize: '20px', // Yazı büyüklüğü
                         }}
                     >
-                        <h3 style={{ color: '#ffbd69' ,  fontSize: '30px',opacity:0.5}}>Merhaba, ben Zeynep!</h3>
+                        <h3 style={{ color: '#ffbd69' ,  fontSize: '30px',opacity:0.5,textAlign:'left'}}>Merhaba, ben Zeynep!</h3>
                         <p>
                             Balıkesir Üniversitesi Bilgisayar Mühendisliği bölümünde öğrenciyim ve
                             dördüncü dönemi (2. sınıf) tamamlamak üzereyim.
@@ -621,366 +550,197 @@ const App = () => {
 
                 </section>
 
-                <section
-                    id="neler"
-                    className="section"
+        <section
+            id="neler"
+            className="section"
+            style={{
+                position: 'relative',
+                textAlign: 'center',
+                padding: '80px 20px',
+                scrollMarginTop: '100px',
+            }}
+        >
+            {/* Stil etiketleri ile media query tanımlanıyor */}
+            <style>
+                {`
+        @media (max-width: 768px) {
+            .responsive-flex {
+                flex-direction: column !important;
+            }
+            
+
+            .responsive-box {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .responsive-text {
+                font-size: 12px !important;
+                text-align: left;
+            }
+
+            .responsive-img {
+                width: 100px !important;
+                height: 100px !important;
+                margin-right: 0 !important;
+                margin-bottom: 10px;
+            }
+
+            .responsive-flex-row {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .responsive-title {
+                font-size: 28px !important;
+            }
+        }
+        `}
+            </style>
+
+            {/* Başlık ve arka plan yazısı */}
+            <div style={{ position: 'relative', display: 'inline-block' }}>
+                <div
                     style={{
-                        position: 'relative',
-                        textAlign: 'center',
-                        padding: '80px 0',
-                        scrollMarginTop: '100px',
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        fontSize: '80px',
+                        fontStyle: 'italic',
+                        color: 'rgba(169,177,200,0.06)',
+                        whiteSpace: 'nowrap',
+                        pointerEvents: 'none',
+                        userSelect: 'none',
+                        zIndex: 0,
+                        fontFamily: 'Georgia',
                     }}
                 >
-                    {/* Başlık ve arka plan yazısı */}
-                    <div style={{ position: 'relative', display: 'inline-block' }}>
-                        {/* Arka plan yazısı */}
-                        <div
-                            style={{
-                                position: 'absolute',
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -50%)',
-                                fontSize: '80px',
-                                fontStyle: 'italic',
-                                color: 'rgba(169,177,200,0.06)',
-                                whiteSpace: 'nowrap',
-                                pointerEvents: 'none',
-                                userSelect: 'none',
-                                zIndex: 0,
-                                fontFamily: 'Georgia',
-                            }}
-                        >
-                            Neler Yapabilirim
-                        </div>
-                        {/* Başlık */}
-                        <h2
-                            style={{
-                                position: 'relative',
-                                zIndex: 1,
-                                margin: 0,
-                                paddingTop: '20px',
-                                fontSize: '36px',
-                                fontWeight: 'bold',
-                                color: '#333',
-                            }}
-                        >
-                            Neler Yapabilirim
-                        </h2>
-                    </div>
+                    Neler Yapabilirim
+                </div>
+                <h2
+                    className="responsive-title"
+                    style={{
+                        position: 'relative',
+                        zIndex: 1,
+                        margin: 0,
+                        paddingTop: '20px',
+                        fontSize: '36px',
+                        fontWeight: 'bold',
+                        color: '#333',
+                    }}
+                >
+                    Neler Yapabilirim
+                </h2>
+            </div>
 
-                    {/* Filtre Butonları */}
+            {/* Genel Başlık */}
+            <h3 style={{ marginTop: '50px', marginBottom: '15px', color: '#555', maxWidth: '800px' }}>Genel</h3>
 
+            <div className="responsive-flex" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '20px' }}>
 
-                    <h3 style={{ marginTop: '50px', marginBottom: '15px', marginLeft:'-100px', color: '#555', maxWidth: '800px' }}>Genel</h3>
-
-                    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'center', gap: '20px' }}>
-                        {/* Sol bölme */}
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', padding: '20px' }}>
-
-                            {/* Birinci Div */}
-                            <div style={{
-                                width: '450px',
-                                height: '180px',
-                                backgroundColor: '#333',
-                                display: 'flex',
-                                alignItems: 'center',
-                                borderRadius: '8px',
-                                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                                padding: '10px'
-                            }}>
-                                {/* Sol kare alan */}
-                                <div
-                                    style={{
-                                        width: '120px',
-                                        height: '120px',
-                                        backgroundColor: '#555',
-                                        backgroundImage: 'url("/c.png")', // <- Doğru kullanım
-                                        backgroundSize: 'cover',          // Resmi kutuya göre ayarlar
-                                        backgroundPosition: 'center',     // Ortalar
-                                        backgroundRepeat: 'no-repeat',    // Tekrar etmez
-                                        borderRadius: '4px',
-                                        overflow: 'hidden',
-                                        flexShrink: 0,
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        marginRight: '10px',
-                                        cursor: 'pointer'
-                                    }}
-                                >
-                                    {/* İsteğe bağlı içerik */}
-                                </div>
-                                {/* Sağ içerik alanı */}
-                                <div style={{ flex: 1 }}>
-                                    <p style={{ color: 'beige', fontSize: '13px', fontFamily: 'Arial, sans-serif', textAlign: 'left', opacity: 0.5 }}>
-                                        Yazılıma büyük bir ilgi duyuyorum ve farklı programlama dillerinde projeler
-                                        geliştirerek kendimi sürekli geliştiriyorum. C#, Java ve Python gibi dillerde deneyim sahibiyim.
-                                        Problem çözme becerilerimi kodlama sürecinde etkin bir şekilde kullanırım.
-                                        Öğrenmeye açık yapım sayesinde yeni teknolojilere kolayca uyum sağlayabiliyorum.
-                                    </p>
-                                </div>
-
-                            </div>
-
-
-
-                            {/* İkinci Div */}
-                            <div style={{
-                                width: '450px',
-                                height: '180px',
-                                backgroundColor: '#333',
-                                display: 'flex',
-                                alignItems: 'center',
-                                borderRadius: '8px',
-                                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                                padding: '10px'
-                            }}>
-                                {/* Sol kare alan */}
-                                <div
-                                    style={{
-                                        width: '120px',
-                                        height: '120px',
-                                        backgroundColor: '#555',
-                                        backgroundImage: 'url("/d.png")', // <- Doğru kullanım
-                                        backgroundSize: 'cover',          // Resmi kutuya göre ayarlar
-                                        backgroundPosition: 'center',     // Ortalar
-                                        backgroundRepeat: 'no-repeat',    // Tekrar etmez
-                                        borderRadius: '4px',
-                                        overflow: 'hidden',
-                                        flexShrink: 0,
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        marginRight: '10px',
-                                        cursor: 'pointer'
-                                    }}
-                                >
-                                    {/* İsteğe bağlı içerik */}
-                                </div>
-
-
-                                {/* Sağ içerik alanı */}
-                                <div style={{ flex: 1 }}>
-                                    <p style={{ color: 'beige', fontSize: '13px', fontFamily: 'Arial, sans-serif', textAlign: 'left',  opacity: 0.5 }}>
-                                        HTML ve CSS kullanarak modern, kullanıcı dostu web arayüzleri tasarlamaktan keyif alıyorum.
-                                        Web tasarımında görsel uyum ve kullanıcı deneyimine önem veririm.
-                                        Tasarladığım sitelerin hem estetik hem de işlevsel olmasına özen gösteririm.
-                                        Sürekli yeni tasarım trendlerini takip ederek kendimi geliştirmeye devam ediyorum.
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Üçüncü Div */}
-                            <div style={{
-                                width: '450px',
-                                height: '180px',
-                                backgroundColor: '#333',
-                                display: 'flex',
-                                alignItems: 'center',
-                                borderRadius: '8px',
-                                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                                padding: '10px'
-                            }}>
-                                {/* Sol kare alan */}
-                                <div
-                                    style={{
-                                        width: '120px',
-                                        height: '120px',
-                                        backgroundColor: '#555',
-                                        backgroundImage: 'url("/b.png")', // <- Doğru kullanım
-                                        backgroundSize: 'cover',          // Resmi kutuya göre ayarlar
-                                        backgroundPosition: 'center',     // Ortalar
-                                        backgroundRepeat: 'no-repeat',    // Tekrar etmez
-                                        borderRadius: '4px',
-                                        overflow: 'hidden',
-                                        flexShrink: 0,
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        marginRight: '10px',
-                                        cursor: 'pointer'
-                                    }}
-                                >
-                                    {/* İsteğe bağlı içerik */}
-                                </div>
-
-
-                                {/* Sağ içerik alanı */}
-                                <div style={{ flex: 1 }}>
-
-                                    <p style={{ color: 'beige', fontSize: '13px', fontFamily: 'Arial, sans-serif', textAlign: 'left', opacity: 0.5 }}>
-                                        Takım çalışmasında uyumlu bir şekilde hareket etmeyi ve ortak hedefler doğrultusunda
-                                        katkı sağlamayı severim. İyi bir dinleyici olup fikir alışverişine açık davranırım.
-                                        Ekip içinde sorumluluk almaktan çekinmem ve gerektiğinde destek olmayı görev bilirim.
-                                        İş birliği ve uyum sayesinde daha güçlü sonuçlar elde edildiğine inanırım.
-                                    </p>
-                                </div>
+                {/* Sol bölme */}
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', padding: '20px' }}>
+                    {/* İçerik kutuları */}
+                    {[...Array(3)].map((_, i) => (
+                        <div key={i} className="responsive-box" style={{
+                            width: '450px',
+                            height: '180px',
+                            backgroundColor: '#333',
+                            display: 'flex',
+                            alignItems: 'center',
+                            borderRadius: '8px',
+                            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                            padding: '10px',
+                            flexWrap: 'wrap',
+                        }}>
+                            <div
+                                className="responsive-img"
+                                style={{
+                                    width: '120px',
+                                    height: '120px',
+                                    backgroundColor: '#555',
+                                    backgroundImage: `url("/${['c', 'd', 'b'][i]}.png")`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center',
+                                    backgroundRepeat: 'no-repeat',
+                                    borderRadius: '4px',
+                                    flexShrink: 0,
+                                    marginRight: '10px',
+                                    cursor: 'pointer'
+                                }}
+                            />
+                            <div style={{ flex: 1 }}>
+                                <p className="responsive-text" style={{ color: 'beige', fontSize: '13px', fontFamily: 'Arial, sans-serif', textAlign: 'left', opacity: 0.5 }}>
+                                    {[
+                                        'Yazılıma büyük bir ilgi duyuyorum ve farklı programlama dillerinde projeler geliştiriyorum...',
+                                        'HTML ve CSS kullanarak modern web arayüzleri tasarlamaktan keyif alıyorum...',
+                                        'Takım çalışmasında uyumlu hareket etmeyi ve fikir alışverişini severim...'
+                                    ][i]}
+                                </p>
                             </div>
                         </div>
+                    ))}
+                </div>
 
-                        {/* Sağ bölme - Programlama Dilleri ve içerikleri */}
-                        <div
-                            style={{
-                                display: 'flex',
-                                flexWrap: 'wrap',
-                                gap: '20px',
-                                width: '50%',
-                                justifyContent: 'flex-start', // veya 'center' isteğe göre
-                                alignItems: 'flex-start',
-                            }}
-                        >
-                            {/* Programlama Dilleri başlığı, hizalamayı sağlamak için margin ve align ayarını düzenle */}
-                            <h4 style={{ width: '100%', marginTop: '-35px', marginBottom: '15px', marginLeft: '0px', color: '#555', fontWeight: 'bold' }}>Programlama Dilleri</h4>
+                {/* Sağ bölme */}
+                <div className="responsive-flex-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', width: '50%', justifyContent: 'flex-start' }}>
+                    <h4 style={{ width: '100%', marginTop: '-35px', color: '#555', fontWeight: 'bold' }}>Programlama Dilleri</h4>
 
-                            {/* Proje 1 */}
+                    {['C#', 'Python', 'Java', 'JavaScript/HTML'].map((lang, i) => (
+                        <div key={lang} className="responsive-box" style={{
+                            width: '100%',
+                            height: '90px',
+                            backgroundColor: '#333',
+                            borderRadius: '8px',
+                            boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+                            padding: '10px',
+                            boxSizing: 'border-box',
+                        }}>
+                            <h4 style={{ color: '#fff', margin: '0 0 10px' }}>{lang}</h4>
+                            <div style={{ backgroundColor: '#555', borderRadius: '4px', height: '10px', width: '100%', overflow: 'hidden' }}>
+                                <div
+                                    style={{
+                                        height: '100%',
+                                        width: '50%',
+                                        backgroundColor: '#007acc',
+                                        transition: 'width 0.5s ease',
+                                    }}
+                                />
+                            </div>
+                        </div>
+                    ))}
+
+                    <h4 style={{ width: '100%', marginTop: '10px', marginBottom: '30px', color: '#555' }}>Yabancı Diller</h4>
+                    <div className="responsive-box" style={{
+                        width: '100%',
+                        height: '90px',
+                        backgroundColor: '#333',
+                        borderRadius: '8px',
+                        boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+                        padding: '10px',
+                        boxSizing: 'border-box',
+                        marginTop: '-30px',
+                    }}>
+                        <h4 style={{ color: '#fff', margin: '0 0 10px' }}>İngilizce (B2)</h4>
+                        <div style={{ backgroundColor: '#555', borderRadius: '4px', height: '10px', width: '100%', overflow: 'hidden' }}>
                             <div
                                 style={{
-                                    width: '100%',
-                                    height: '90px',
-                                    backgroundColor: '#333',
-                                    borderRadius: '8px',
-                                    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
-                                    padding: '10px',
-                                    boxSizing: 'border-box',
+                                    height: '100%',
+                                    width: '70%',
+                                    backgroundColor: '#007acc',
+                                    transition: 'width 0.5s ease',
                                 }}
-                            >
-                                {/* Başlık */}
-                                <h4 style={{ color: '#fff', margin: '0 0 10px' }}>C#</h4>
-
-                                {/* Progress Bar */}
-                                <div style={{ backgroundColor: '#555', borderRadius: '4px', height: '10px', width: '100%', overflow: 'hidden' }}>
-                                    <div
-                                        style={{
-                                            height: '100%',
-                                            width: '50%', // Orta seviyede ilerleme
-                                            backgroundColor: '#007acc',
-                                            transition: 'width 0.5s ease',
-                                        }}
-                                    />
-                                </div>
-                            </div>
-                            {/* Proje 2 */}
-                            <div
-                                style={{
-                                    width: '100%',
-                                    height: '90px',
-                                    backgroundColor: '#333',
-                                    borderRadius: '8px',
-                                    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
-                                    padding: '10px',
-                                    boxSizing: 'border-box',
-                                }}
-                            >
-                                {/* Başlık */}
-                                <h4 style={{ color: '#fff', margin: '0 0 10px' }}>Python</h4>
-                                {/* C# Başlığı */}
-
-                                {/* Progress Bar */}
-                                <div style={{ backgroundColor: '#555', borderRadius: '4px', height: '10px', width: '100%', overflow: 'hidden' }}>
-                                    <div
-                                        style={{
-                                            height: '100%',
-                                            width: '50%', // Orta seviyede ilerleme
-                                            backgroundColor: '#007acc',
-                                            transition: 'width 0.5s ease',
-                                        }}
-                                    />
-                                </div>
-                            </div>
-                            {/* Proje 3 */}
-                            <div
-                                style={{
-                                    width: '100%',
-                                    height: '90px',
-                                    backgroundColor: '#333',
-                                    borderRadius: '8px',
-                                    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
-                                    padding: '10px',
-                                    boxSizing: 'border-box',
-                                }}
-                            >
-                                {/* Başlık */}
-                                <h4 style={{ color: '#fff', margin: '0 0 10px' }}>Java</h4>
-                                {/* C# Başlığı */}
-
-                                {/* Progress Bar */}
-                                <div style={{ backgroundColor: '#555', borderRadius: '4px', height: '10px', width: '100%', overflow: 'hidden' }}>
-                                    <div
-                                        style={{
-                                            height: '100%',
-                                            width: '50%', // Orta seviyede ilerleme
-                                            backgroundColor: '#007acc',
-                                            transition: 'width 0.5s ease',
-                                        }}
-                                    />
-                                </div>
-                            </div>
-                            <div
-                                style={{
-                                    width: '100%',
-                                    height: '90px',
-                                    backgroundColor: '#333',
-                                    borderRadius: '8px',
-                                    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
-                                    padding: '10px',
-                                    boxSizing: 'border-box',
-                                }}
-                            >
-                                {/* Başlık */}
-                                <h4 style={{ color: '#fff', margin: '0 0 10px' }}>javaScript/html</h4>
-                                {/* C# Başlığı */}
-
-                                {/* Progress Bar */}
-                                <div style={{ backgroundColor: '#555', borderRadius: '4px', height: '10px', width: '100%', overflow: 'hidden' }}>
-                                    <div
-                                        style={{
-                                            height: '100%',
-                                            width: '50%', // Orta seviyede ilerleme
-                                            backgroundColor: '#007acc',
-                                            transition: 'width 0.5s ease',
-                                        }}
-                                    />
-                                </div>
-                            </div>
-
-                            {/* Yabancı Diller başlığı, hizalamayı sağlamak için margin ve genişliği ayarla */}
-                            <h4 style={{ width: '100%', marginTop: '10px', marginBottom: '30px', marginLeft: '0px', color: '#555' }}>Yabancı Diller</h4>
-
-                            {/* Yabancı Diller içerikleri */}
-                            <div
-                                style={{
-                                    width: '100%',
-                                    height: '90px',
-                                    backgroundColor: '#333',
-                                    borderRadius: '8px',
-                                    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
-                                    padding: '10px',
-                                    boxSizing: 'border-box',
-                                    marginTop:'-30px',
-                                }}
-                            >
-                                {/* Başlık */}
-                                <h4 style={{ color: '#fff', margin: '0 0 10px' }}>İngilizce (B2)</h4>
-
-
-                                {/* Progress Bar */}
-                                <div style={{ backgroundColor: '#555', borderRadius: '4px', height: '10px', width: '100%', overflow: 'hidden' }}>
-                                    <div
-                                        style={{
-                                            height: '100%',
-                                            width: '70%', // Orta seviyede ilerleme
-                                            backgroundColor: '#007acc',
-                                            transition: 'width 0.5s ease',
-                                        }}
-                                    />
-                                </div>
-                            </div>
+                            />
                         </div>
                     </div>
-                </section>
+                </div>
+            </div>
+        </section>
 
 
-                <section
+
+        <section
                     id="portfolyo"
                     className="section"
                     style={{
@@ -1029,11 +789,17 @@ const App = () => {
                     <div
                         className="filter-buttons"
                         style={{
+
                             marginTop: '40px',
                             display: 'flex',
                             justifyContent: 'center',
-                            gap: '10px',
-                            flexWrap: 'wrap',
+                            alignItems: 'center', // Ortalamayı dikey eksende de sağlar
+                            gap: '12px',          // Daha tutarlı bir boşluk
+                            flexWrap: 'wrap',     // Küçük ekranlarda alt satıra geçiş
+                            rowGap: '16px',
+                            // Satırlar arası boşluk ayarı (isteğe bağlı)
+
+
                         }}
                     >
                         <button className={activeFilter === 'all' ? 'active' : ''} onClick={() => setActiveFilter('all')}>
